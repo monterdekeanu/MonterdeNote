@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using MonterdeNote.Server.Core.Repositories;
+using MonterdeNote.Server.Core.Services;
 using MonterdeNote.Server.Data;
+using MonterdeNote.Server.Repositories;
+using MonterdeNote.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddScoped<INoteService, NoteService>();
+builder.Services.AddScoped<INoteRepository, NoteRepository>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
