@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MonterdeNote.Server.Core.Services;
 using MonterdeNote.Server.Shared.DTOs;
 
 namespace MonterdeNote.Server.Controllers
@@ -7,26 +8,50 @@ namespace MonterdeNote.Server.Controllers
     [Route("api/[controller]")]
     public class NoteController : ControllerBase
     {
-        public NoteController() {
-        
-        
+        private readonly INoteService _noteService;
+        public NoteController(INoteService noteService) {
+            _noteService = noteService;
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok();
+            try
+            {
+                var notes = await _noteService.Get();
+                return Ok(notes);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
         [HttpPost]
-        public IActionResult Post([FromBody] NoteCreationDto noteCreationDto)
+        public async Task<IActionResult> Post([FromBody] NoteCreationDto noteCreationDto)
         {
-            return Ok();
+            try
+            {
+                await _noteService.Post(noteCreationDto);
+                return Ok("Note Added");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpDelete]
-        public IActionResult Delete(Guid guid)
+        public async Task<IActionResult> Delete(Guid guid)
         {
-            return Ok();
+            try
+            {
+                await _noteService.Delete(guid);
+                return Ok("Note Deleted");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
 
+            }
         }
     }
 }
