@@ -1,0 +1,6 @@
+@MonterdeNote.Server_HostAddress = http://localhost:5179
+
+GET {{MonterdeNote.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
