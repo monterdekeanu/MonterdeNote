@@ -32,7 +32,7 @@
 
 <script>
 import axios from 'axios'
-const apiUrl = 'https://localhost:58438/api/Note'
+const apiUrl = 'https://monterdenote-api-gyhzf8hgeyfeeghz.eastasia-01.azurewebsites.net/api/Note'
 export default {
   data() {
     return {
