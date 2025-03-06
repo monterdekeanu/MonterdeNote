@@ -5,9 +5,28 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonterdeNote.Server", "MonterdeNote.Server\MonterdeNote.Server.csproj", "{2AFCA828-A0BE-4B34-B6F3-0C93CED8C464}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "monterdenote.client", "monterdenote.client\monterdenote.client.esproj", "{61458B6D-9892-4D91-A92C-2EE4233B26A1}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{14EB13E3-459F-49B0-8A18-569744817037}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "monterdeNote.client", "monterdeNote.client\", "{C6E5CA2C-2B96-46F2-97FC-E6C2AC730A86}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61175"
+		Debug.AspNetCompiler.PhysicalPath = "monterdeNote.client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61175\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61175"
+		Release.AspNetCompiler.PhysicalPath = "monterdeNote.client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61175\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61175"
+		SlnRelativePath = "monterdeNote.client\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +38,14 @@ Global
 		{2AFCA828-A0BE-4B34-B6F3-0C93CED8C464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AFCA828-A0BE-4B34-B6F3-0C93CED8C464}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AFCA828-A0BE-4B34-B6F3-0C93CED8C464}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61458B6D-9892-4D91-A92C-2EE4233B26A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61458B6D-9892-4D91-A92C-2EE4233B26A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61458B6D-9892-4D91-A92C-2EE4233B26A1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{61458B6D-9892-4D91-A92C-2EE4233B26A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61458B6D-9892-4D91-A92C-2EE4233B26A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61458B6D-9892-4D91-A92C-2EE4233B26A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{14EB13E3-459F-49B0-8A18-569744817037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14EB13E3-459F-49B0-8A18-569744817037}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14EB13E3-459F-49B0-8A18-569744817037}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14EB13E3-459F-49B0-8A18-569744817037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6E5CA2C-2B96-46F2-97FC-E6C2AC730A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E5CA2C-2B96-46F2-97FC-E6C2AC730A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E5CA2C-2B96-46F2-97FC-E6C2AC730A86}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E5CA2C-2B96-46F2-97FC-E6C2AC730A86}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
