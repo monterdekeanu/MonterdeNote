@@ -5,8 +5,8 @@
       <el-table-column prop="title" label="Name" />
       <el-table-column prop="content" label="Content" />
       <el-table-column fixed="right" label="Operations">
-        <template #default>
-          <el-button type="danger" size="small">Delete</el-button>
+        <template #default="{ row }">
+          <el-button type="danger" size="small" @click="deleteNote(row.guid)"> Delete </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -40,24 +40,7 @@ export default {
         title: '',
         content: '',
       },
-      Notes: [
-        {
-          title: 'Title 1',
-          content: 'Content 1',
-        },
-        {
-          title: 'Title 2',
-          content: 'Content 2',
-        },
-        {
-          title: 'Title 3',
-          content: 'Content 3',
-        },
-        {
-          title: 'Title 4',
-          content: 'Content 4',
-        },
-      ],
+      Notes: [],
       dialogFormVisible: false,
       formLabelWidth: '140px',
     }
@@ -86,6 +69,13 @@ export default {
         .catch(() => {
           this.Notes = []
         })
+    },
+    deleteNote(guid) {
+      axios.delete(apiUrl + '?guid=' + guid, this.noteCreationDto)
+      this.toggleDialog()
+      setTimeout(() => {
+        this.loadNote()
+      }, 1000)
     },
   },
   mounted() {
