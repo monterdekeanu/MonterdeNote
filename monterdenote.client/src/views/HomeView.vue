@@ -72,7 +72,6 @@ export default {
     },
     deleteNote(guid) {
       axios.delete(apiUrl + '?guid=' + guid, this.noteCreationDto)
-      this.toggleDialog()
       setTimeout(() => {
         this.loadNote()
       }, 1000)
