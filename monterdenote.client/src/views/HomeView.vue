@@ -1,7 +1,12 @@
 <template>
   <main>
     <el-button type="primary" plain @click="toggleDialog"> Add Note </el-button>
-    <el-table v-loading="loading" :data="Notes" style="width: 100%">
+    <el-table
+      empty-text="This table is empty."
+      v-loading="loading"
+      :data="Notes"
+      style="width: 100%"
+    >
       <el-table-column prop="title" label="Name" />
       <el-table-column prop="content" label="Content" />
       <el-table-column fixed="right" label="Operations">
