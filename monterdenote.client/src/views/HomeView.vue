@@ -1,7 +1,7 @@
 <template>
   <main>
     <el-button type="primary" plain @click="toggleDialog"> Add Note </el-button>
-    <el-table :data="Notes" style="width: 100%">
+    <el-table v-loading="loading" :data="Notes" style="width: 100%">
       <el-table-column prop="title" label="Name" />
       <el-table-column prop="content" label="Content" />
       <el-table-column fixed="right" label="Operations">
@@ -43,6 +43,7 @@ export default {
       Notes: [],
       dialogFormVisible: false,
       formLabelWidth: '140px',
+      loading: false,
     }
   },
   methods: {
@@ -50,16 +51,22 @@ export default {
       this.dialogFormVisible = !this.dialogFormVisible
     },
     submitNote() {
+      this.loading = true
       axios.post(apiUrl, this.noteCreationDto)
       this.toggleDialog()
       setTimeout(() => {
         this.loadNote()
       }, 1000)
-      Object.keys(this.noteCreationDto).forEach((key) => {
-        this.noteCreationDto[key] = ''
-      })
+      Object.keys(this.noteCreationDto)
+        .forEach((key) => {
+          this.noteCreationDto[key] = ''
+        })
+        .finally(() => {
+          this.loading = false
+        })
     },
     loadNote() {
+      this.loading = true
       axios
         .get(apiUrl)
         .then((res) => {
@@ -69,12 +76,18 @@ export default {
         .catch(() => {
           this.Notes = []
         })
+        .finally(() => {
+          this.loading = false
+        })
     },
     deleteNote(guid) {
+      this.loading = true
       axios.delete(apiUrl + '?guid=' + guid, this.noteCreationDto)
       setTimeout(() => {
         this.loadNote()
-      }, 1000)
+      }, 1000).finally(() => {
+        this.loading = false
+      })
     },
   },
   mounted() {
