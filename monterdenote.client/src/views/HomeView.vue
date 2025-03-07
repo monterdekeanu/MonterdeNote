@@ -95,3 +95,12 @@ export default {
   },
 }
 </script>
+
+<style>
+body {
+  margin: 0;
+}
+.el-loading-mask {
+  z-index: 9;
+}
+</style>
